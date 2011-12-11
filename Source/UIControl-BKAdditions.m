@@ -29,6 +29,8 @@
 
 - (void)removeAllActionBlocks;
 {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
     NSArray *targets = [[self.allTargets copy] autorelease];
     
     for (id currTarget in targets) {
@@ -38,6 +40,8 @@
             [currTarget release];
         }
     }
+    
+    [pool release];
 }
 
 - (void)bk_dealloc;
